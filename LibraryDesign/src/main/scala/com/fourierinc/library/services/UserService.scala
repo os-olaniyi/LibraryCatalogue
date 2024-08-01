@@ -6,6 +6,7 @@ import com.fourierinc.library.models.User
 import slick.jdbc.MySQLProfile.api._
 import scala.concurrent.{Future, ExecutionContext}
 import scala.util.Random
+import scala.concurrent.ExecutionContext.Implicits.global
 
 import org.mindrot.jbcrypt.BCrypt
 //import com.github.t3hnar.bcrypt._
