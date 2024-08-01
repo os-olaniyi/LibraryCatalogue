@@ -1,4 +1,4 @@
-package com.fourierinc.library.database
+package com.fourierinc.library.databases
 
 import slick.jdbc.MySQLProfile.api.*
 import slick.lifted.{ProvenShape, ForeignKeyQuery}
@@ -74,4 +74,11 @@ class Sessions(tag: Tag)
   
   def * = (id, userId, sessionId, loginTime, logoutTime, active, createdAt) <>
     (Session.tupled, Session.unapply)
+}
+
+object Tables {
+  val users = TableQuery[Users]
+  val books = TableQuery[Books]
+  val borrowRecords = TableQuery[BorrowRecords]
+  val sessions = TableQuery[Sessions]
 }

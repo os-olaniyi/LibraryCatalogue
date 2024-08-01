@@ -1,4 +1,4 @@
-package com.fourierinc.library.database
+package com.fourierinc.library.databases
 
 import slick.jdbc.MySQLProfile.api._
 import  com.typesafe.config.ConfigFactory
