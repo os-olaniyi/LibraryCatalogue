@@ -9,7 +9,7 @@ import scala.util.Random
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import org.mindrot.jbcrypt.BCrypt
-//import com.github.t3hnar.bcrypt._
+import com.github.t3hnar.bcrypt._
 
 object UserService {
   def generateRegistrationId(user: User): String = {
@@ -26,8 +26,9 @@ object UserService {
   
   def registerUser (user: User)(implicit ec: ExecutionContext): Future[Int] = {
     val registrationId = generateRegistrationId(user)
-    val hashedPassword = hashPassword(user)
-    //val hashedPassword = BCrypt.hashpw(user.passwordHash, BCrypt.gensalt(10))
+    val hashedPassword = hashPassword(user)     //Works for jbcrypt 
+    //val hashedPassword = user.passwordHash.bcrypt
+    //val hashedPassword = BCrypt.hashpw(user.passwordHash, BCrypt.gensalt(10))   //Works for jbcrypt 
     val userWithId = user.copy(registrationId = registrationId, passwordHash = hashedPassword)
     db.run(users returning users.map(_.id) += userWithId)
   }
