@@ -6,6 +6,6 @@ import  scala.concurrent.ExecutionContext.Implicits.global
 
 object DatabaseConfig {
   val config = ConfigFactory.load()
-  val db = Database.forConfig("fourierDB")
+  val db = Database.forConfig("libraryDb")
 }
   
