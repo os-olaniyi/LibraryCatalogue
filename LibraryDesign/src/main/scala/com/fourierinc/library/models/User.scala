@@ -7,6 +7,7 @@ case class User (
                 id: Int,
                 firstName: String,
                 lastName: String,
+                email: String,
                 dateOfBirth: Date,
                 registrationId: String,
                 passwordHash: String,

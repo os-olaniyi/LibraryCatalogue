@@ -7,7 +7,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import java.sql.Date
 import java.time.LocalDateTime
 
-case class User(id: Int, firstName: String, lastName: String, dateOfBirth: Date, registrationId: String, passwordHarsh: String,
+case class User(id: Int, firstName: String, lastName: String, email: String, dateOfBirth: Date, registrationId: String, passwordHarsh: String,
                 passportPicture: Array[Byte], createdAt: LocalDateTime)
 case class Book(id: Int, title: String, author: String, isbn: String, subject: String, publishedYear: Int, shelfNumber: Int,
                 bookTag: String, available: Boolean, createdAt: LocalDateTime)
@@ -21,12 +21,13 @@ class Users(tag: Tag)
   def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
   def firstName = column[String]("first_name")
   def lastName = column[String]("last_name")
+  def email = column[String]("email")
   def dateOfBirth = column[Date]("date_of_birth")
   def registrationId = column[String]("registration_id")
   def passwordHash = column[String]("password_hash")
   def passportPicture = column[Array[Byte]]("passport_picture")
   def createdAt = column[LocalDateTime]("created_at", O.Default(LocalDateTime.now()))
-  def * = (id, firstName, lastName, dateOfBirth, registrationId, passwordHash, passportPicture, createdAt).mapTo[User]
+  def * = (id, firstName, lastName, email, dateOfBirth, registrationId, passwordHash, passportPicture, createdAt).mapTo[User]
 
 //  //def * : ProvenShape[User] = ???
 //  def * : ProvenShape[User] = (id, firstName, lastName, dateOfBirth, registrationId, passwordHash,
@@ -77,9 +78,11 @@ class Sessions(tag: Tag)
   def logoutTime = column[Option[LocalDateTime]]("logout_time")
   def active = column[Boolean]("active", O.Default(true))
   def createdAt = column[LocalDateTime]("created_at", O.Default(LocalDateTime.now()))
+  def * = (id, userId, sessionId, loginTime, logoutTime, active, createdAt).mapTo[Session]
   
-  def * : ProvenShape[Session] = (id, userId, sessionId, loginTime, logoutTime, active, createdAt) <>
-    (Session.tupled, Session.unapply)
+//  def * : ProvenShape[Session] = (id, userId, sessionId, loginTime, logoutTime, active, createdAt) <>
+//    (Session.tupled, Session.unapply)
+  def userFk: ForeignKeyQuery[Users, User] = foreignKey("users_fk", userId, TableQuery[Users])(_.id)
 }
 
 object Tables {
