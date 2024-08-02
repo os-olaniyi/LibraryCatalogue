@@ -1,5 +1,5 @@
-*.class
-*.log
+../*.class
+../*.log
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
@@ -11,16 +11,16 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
-*.iml
-*.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+../.idea/modules.xml
+../.idea/jarRepositories.xml
+../.idea/compiler.xml
+../.idea/libraries/
+../*.iws
+ ../*.iml
+../*.ipr
+../out/
+../!**/src/main/**/out/
+../!**/src/test/**/out/
 
 ### Eclipse ###
 .apt_generated
@@ -31,8 +31,8 @@ out/
 .springBeans
 .sts4-cache
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+../!**/src/main/**/bin/
+../!**/src/test/**/bin/
 
 ### NetBeans ###
 /nbproject/private/
@@ -49,6 +49,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
-
+../.DS_Store
 ### Scala ###
 .bsp/
