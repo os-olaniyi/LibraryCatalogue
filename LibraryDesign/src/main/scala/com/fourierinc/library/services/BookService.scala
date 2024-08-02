@@ -2,7 +2,7 @@ package com.fourierinc.library.services
 
 import com.fourierinc.library.databases.Tables._
 import com.fourierinc.library.databases.DatabaseConfig._
-import com.fourierinc.library.models.Book
+import com.fourierinc.library.models.{Book, B}
 import slick.jdbc.MySQLProfile.api._
 import scala.concurrent.{Future, ExecutionContext}
 import scala.concurrent.ExecutionContext.Implicits.global

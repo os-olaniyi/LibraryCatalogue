@@ -13,3 +13,6 @@ case class User (
                 passportPicture: Array[Byte],
                 createdAt: LocalDateTime
                 )
+object User {
+  val tupled = (User.apply _).tupled
+}

@@ -26,10 +26,11 @@ class Users(tag: Tag)
   def passwordHash = column[String]("password_hash")
   def passportPicture = column[Array[Byte]]("passport_picture")
   def createdAt = column[LocalDateTime]("created_at", O.Default(LocalDateTime.now()))
+  def * = (id, firstName, lastName, dateOfBirth, registrationId, passwordHash, passportPicture, createdAt).mapTo[User]
 
-  //def * : ProvenShape[User] = ???
-  def * = (id, firstName, lastName, dateOfBirth, registrationId, passwordHash,
-    passportPicture, createdAt) <> (User.tupled, User.unapply) 
+//  //def * : ProvenShape[User] = ???
+//  def * : ProvenShape[User] = (id, firstName, lastName, dateOfBirth, registrationId, passwordHash,
+//    passportPicture, createdAt) <> (User.tupled, User.unapply) 
 }
 
 class Books(tag: Tag)
@@ -44,9 +45,10 @@ class Books(tag: Tag)
   def bookTag = column[String]("book_tag")
   def available = column[Boolean]("available", O.Default(true))
   def createdAt = column[LocalDateTime]("created_at", O.Default(LocalDateTime.now()))
+  def * = (id, title, author, isbn, subject, publishedYear, shelfNumber, bookTag, available, createdAt).mapTo[Book]
   
-  def * : ProvenShape[Book] = (id, title, author, isbn, subject, publishedYear, shelfNumber, bookTag,
-    available, createdAt) <> (Book.tupled, Book.unapply)
+//  def * : ProvenShape[Book] = (id, title, author, isbn, subject, publishedYear, shelfNumber, bookTag,
+//    available, createdAt) <> (Book.tupled, Book.unapply)
 }
 
 class BorrowRecords(tag: Tag) 
@@ -58,9 +60,12 @@ class BorrowRecords(tag: Tag)
   def dueDate = column[Date]("due_date")
   def returned = column[Boolean]("returned", O.Default(false))
   def createdAt = column[LocalDateTime]("created_at", O.Default(LocalDateTime.now()))
+  def * = (id, userId, bookId, dateBorrowed, dueDate, returned, createdAt).mapTo[BorrowRecord]
   
-  def * = (id, userId, bookId, dateBorrowed, dueDate, returned, createdAt) <> 
-    (BorrowRecord.tupled, BorrowRecord.unapply)
+//  def * : ProvenShape[BorrowRecord] = (id, userId, bookId, dateBorrowed, dueDate, returned, createdAt) <> 
+//    (BorrowRecord.tupled, BorrowRecord.unapply)
+  def userFk: ForeignKeyQuery[Users, User] = foreignKey("user_fk", userId, TableQuery[Users])(_.id)
+  def bookFk: ForeignKeyQuery[Books, Book] = foreignKey("book_fk", bookId, TableQuery[Books])(_.id)
 }
 
 class Sessions(tag: Tag) 
@@ -73,7 +78,7 @@ class Sessions(tag: Tag)
   def active = column[Boolean]("active", O.Default(true))
   def createdAt = column[LocalDateTime]("created_at", O.Default(LocalDateTime.now()))
   
-  def * = (id, userId, sessionId, loginTime, logoutTime, active, createdAt) <>
+  def * : ProvenShape[Session] = (id, userId, sessionId, loginTime, logoutTime, active, createdAt) <>
     (Session.tupled, Session.unapply)
 }
 
