@@ -14,3 +14,6 @@ case class Book (
                 available: Boolean,
                 createdAt: LocalDateTime
                 )
+object Book {
+  val tupled = (Book.apply _).tupled
+}

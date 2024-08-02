@@ -12,3 +12,6 @@ case class BorrowRecord(
                            returned: Boolean,
                            createdAt: LocalDateTime
                            )
+object BorrowRecord {
+  val tupled = (BorrowRecord.apply _).tupled
+}

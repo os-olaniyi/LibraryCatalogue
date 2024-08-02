@@ -14,3 +14,6 @@ case class Session(
                   active: Boolean,
                   createdAt: LocalDateTime
                   )
+object Session {
+  val tupled = (Session.apply _).tupled
+}
