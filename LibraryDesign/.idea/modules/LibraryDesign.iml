@@ -15,12 +15,22 @@
     <orderEntry type="library" name="sbt: scala-sdk-3.3.3" level="project" />
     <orderEntry type="library" name="sbt: com.google.protobuf:protobuf-java:3.21.9:jar" level="project" />
     <orderEntry type="library" name="sbt: com.mysql:mysql-connector-j:8.0.33:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-actor-typed_3:2.8.5:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-actor_3:2.8.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-http-core_3:10.5.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-http_3:10.5.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-parsing_3:10.5.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-protobuf-v3_3:2.8.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-slf4j_3:2.8.5:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-stream_3:2.8.6:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.slick:slick-hikaricp_3:3.5.1:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.slick:slick_3:3.5.1:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe:config:1.4.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe:ssl-config-core_3:0.6.1:jar" level="project" />
     <orderEntry type="library" name="sbt: com.zaxxer:HikariCP:4.0.3:jar" level="project" />
     <orderEntry type="library" name="sbt: org.mindrot:jbcrypt:0.4:jar" level="project" />
     <orderEntry type="library" name="sbt: org.reactivestreams:reactive-streams:1.0.4:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-java8-compat_3:1.0.0:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: org.scala-lang.modules:scala-xml_3:2.1.0:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.13.12:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala3-library_3:3.3.3:jar" level="project" />
