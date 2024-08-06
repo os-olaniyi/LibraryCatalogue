@@ -1,7 +1,7 @@
 package com.fourierinc.library.databases
 
 import slick.jdbc.MySQLProfile.api.*
-import slick.lifted.{ProvenShape, ForeignKeyQuery}
+import slick.lifted.{ProvenShape, ForeignKeyQuery, ForeignKey}
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import java.sql.Date

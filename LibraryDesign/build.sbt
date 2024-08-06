@@ -16,6 +16,10 @@ lazy val root = (project in file("."))
       "org.mindrot" % "jbcrypt" % "0.4",
       "com.typesafe" % "config" % "1.4.3",
       //"com.github.t3hnar" %% "scala-bcrypt" % "4.3.0",
+      "com.typesafe.akka" %% "akka-http" % "10.5.3",
+      "com.typesafe.akka" %% "akka-actor-typed" % "2.8.5",
+      "com.typesafe.akka" %% "akka-stream" % "2.8.6",
+      "com.typesafe" % "config" % "1.4.3",
       "org.scalatest" %% "scalatest" % "3.2.18" % Test
     ),
     resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
